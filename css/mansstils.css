@@ -4,8 +4,16 @@ body{
     box-sizing: border-box;
     font-family: Arial, sans-serif;
     min-height: 100vh;
-    background: linear-gradient(110deg,#fad4e8,#fce6ff,#faafd4);
-  position: relative;
+    background: linear-gradient(135deg,#fad4e8,#fce6ff,#faafd4);
+    position: relative;
+    opacity: 0;            
+    animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
 h1{
@@ -38,7 +46,7 @@ h3{  color: rgb(124,63,104);
 p{
     font-family: 'Oswald',sans-serif;
     font-weight: 200;
-    font-style: italic;
+    font-style: normal;
     font-size: 40px;
     line-height: 1.5;
     color: rgb(68,24,54);
@@ -60,13 +68,21 @@ img{
     display: block;
     margin: 10px auto;
     border-radius: 10px;
+    transition: transform 0.3s ease;
 }
-video{
+img:hover {
+    transform: scale(1.05);
+}
+.video-klips{
     width: 600px;
     height: auto;
     display: block;
     margin: 10px auto;
     border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+.video-klips:hover{
+    transform: scale(1.05)
 }
 nav {
     margin: 0;
@@ -111,9 +127,9 @@ button{
     align-content: center;
     font-family: "Bungee",sans-serif;
     font-size: 20px;
-    transition-duration: 0.4s;
     display: inline-block;
 }
+
 .button-wrapper{
     display: flex;
     justify-content: center;
@@ -125,6 +141,7 @@ button{
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
+    transition: transform 0.3s ease;
 }
 .image-row img{
     width: 400px;
@@ -149,12 +166,31 @@ button{
     background-color: white;
     border-radius: 60px;
     padding: 40px 60px;
+    transition: all 0.4s ease;
     
     
         
 }
 .main-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     color: rgb(57,107,156);
+    
+}
+.main-button:active {
+    transform: scale(0.95);
+}
+section {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .dropdown {
@@ -181,3 +217,37 @@ button{
     border-radius: 10px;
 }
 
+.bg-grid { 
+position: fixed; 
+inset: 0; 
+z-index: -1; 
+pointer-events: none; 
+display: grid; 
+grid-template-columns: repeat(8, 1fr); 
+gap: 50px; 
+padding: 50px; 
+overflow: hidden;
+} 
+.bg-grid span { 
+font-size: 110px; 
+color: rgba(255,255,255,0.2); 
+text-align: center; 
+position: relative; 
+animation: floatUp 8s linear infinite;
+} 
+
+
+
+
+
+.bg-grid span:nth-child(even) {
+    transform: translateY(40px);
+}
+
+@keyframes floatUp {
+   0% { transform: translateY(0); }
+    100% { transform: translateY(-200%); }
+}
+html {
+    scroll-behavior: smooth;
+}
