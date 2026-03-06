@@ -73,7 +73,7 @@ img{
 img:hover {
     transform: scale(1.05);
 }
-.video-klips{
+.video-klips iframe{
     width: 600px;
     height: auto;
     display: block;
@@ -82,7 +82,8 @@ img:hover {
     transition: transform 0.3s ease;
 }
 .video-klips:hover{
-    transform: scale(1.05)
+    transform: scale(1.05);
+        
 }
 nav {
     margin: 0;
