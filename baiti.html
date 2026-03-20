@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="lv">
+    <head>
+         <meta charset="UTF-8">
+    <title>Datu apjoma aprēķins</title>
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/mansstils_1.css" type="text/css"/>
+</head>
+<body>
+
+    <div class="form-container">
+        <p>Aprēķināt cik daudz informācijas var lejupielādēt</p>
+        <input type="number" id="sekundes" placeholder="Ievadiet sekundes"> 
+        <span>sekundēs, ja interneta ātrums ir 25 Mbps.</span>
+
+        <p>Atbilde</p>
+        <input type="text" id="atbilde" readonly>
+
+        <input type="radio" name="unit" id="kib" onclick="rekinat()"> 
+        <label for="kib">KiB</label>
+        
+        <input type="radio" name="unit" id="kb" onclick="rekinat()"> 
+        <label for="kb">KB</label>
+    </div>
+
+    <script>
+        const lauksSekundes = document.getElementById('sekundes');
+        const lauksAtbilde = document.getElementById('atbilde');
+        const radioKiB = document.getElementById('kib');
+        const radioKB = document.getElementById('kb');
+        function rekinat() {
+            const s = parseFloat(lauksSekundes.value);
+           
+            if (isNaN(s)) return;
+            const kopējieBiti = s * 25000000;
+            const kopējieBaiti = kopējieBiti / 8;
+
+            if (radioKB.checked) {
+               
+                lauksAtbilde.value = kopējieBaiti / 1000;
+            } else if (radioKiB.checked) {
+                lauksAtbilde.value = kopējieBaiti / 1024;
+            }
+        }
+
+        
+        lauksSekundes.onfocus = function() {
+            lauksSekundes.value = "";
+            lauksAtbilde.value = "";
+            radioKiB.checked = false;
+            radioKB.checked = false;
+        };
+    </script>
+
+</body>
+</html>

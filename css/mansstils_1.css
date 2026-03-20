@@ -298,3 +298,70 @@ input[type="button"]:active, input[type="submit"]:active, input[type="reset"]:ac
    transform: scale(0.95);
    justify-content: center;
 }
+
+.form-container { 
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 30px; 
+    width: 350px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border: 2px solid #fce4ec; 
+}
+
+
+
+input[type="number"], 
+input[type="text"] { 
+    width: 100%; 
+    padding: 10px;
+    margin-bottom: 15px; 
+    border: 2px solid #e3f2fd; 
+    border-radius: 10px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input[type="number"]:focus {
+    border-color: #f8bbd0; 
+}
+
+#atbilde {
+    background-color: #f9f9f9;
+    color: #ff80ab; 
+    font-weight: bold;
+}
+
+label { 
+    margin-right: 15px; 
+    color: #78909c;
+    cursor: pointer;
+}
+
+
+input[type="radio"] {
+    accent-color: #f06292; 
+}
+
+span {
+    font-size: 0.9em;
+    color: #90a4ae;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.video-container {
+    width: fit-content;
+    margin: 20px auto;
+    padding: 10px;
+    background: white;
+    border: 2px solid #fce4ec; 
+    border-radius: 20px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    overflow: hidden; 
+    line-height: 0; 
+}
+
+.video-container iframe {
+    border-radius: 15px; 
+}
